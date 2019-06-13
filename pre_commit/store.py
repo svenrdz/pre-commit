@@ -6,6 +6,7 @@ import logging
 import os.path
 import sqlite3
 import tempfile
+from copy import deepcopy
 
 import pre_commit.constants as C
 from pre_commit import file_lock
@@ -160,8 +161,9 @@ class Store(object):
             repo = os.path.abspath(repo)
 
         def clone_strategy(directory):
+            env_before = deepcopy(env)
             env = git.no_git_env()
-            print(env)
+            print(set(env) - set(env_before))
 
             def _git_cmd(*args):
                 cmd_output('git', *args, cwd=directory, env=env)
