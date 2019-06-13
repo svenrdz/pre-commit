@@ -161,6 +161,7 @@ class Store(object):
 
         def clone_strategy(directory):
             env = git.no_git_env()
+            print(env)
 
             def _git_cmd(*args):
                 cmd_output('git', *args, cwd=directory, env=env)
