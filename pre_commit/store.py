@@ -161,7 +161,7 @@ class Store(object):
             repo = os.path.abspath(repo)
 
         def clone_strategy(directory):
-            env_before = deepcopy(env)
+            env_before = dict(os.environ)
             env = git.no_git_env()
             print(env)
             print("ici")
