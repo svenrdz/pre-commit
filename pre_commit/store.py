@@ -163,6 +163,8 @@ class Store(object):
         def clone_strategy(directory):
             env_before = deepcopy(env)
             env = git.no_git_env()
+            print(env)
+            print("ici")
             print(set(env) - set(env_before))
 
             def _git_cmd(*args):
