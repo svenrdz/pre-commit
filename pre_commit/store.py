@@ -163,9 +163,7 @@ class Store(object):
         def clone_strategy(directory):
             env_before = dict(os.environ)
             env = git.no_git_env()
-            print(env)
-            print("ici")
-            print(set(env) - set(env_before))
+            print(os.environ["SSH_AUTH_SOCK"])
 
             def _git_cmd(*args):
                 cmd_output('git', *args, cwd=directory, env=env)
